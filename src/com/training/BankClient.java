@@ -6,6 +6,12 @@ import java.util.Scanner;
 public class BankClient {
 
 	public static void main(String[] args) {
+		SavingsAccount savingsAccount = new SavingsAccount(1234, "Anwar", 500, 4);
+		savingsAccount.displayBalance();
+		savingsAccount.deposit(300);
+		savingsAccount.displayBalance();
+		savingsAccount.withdraw(100);
+		
 
 		Scanner sc = new Scanner(System.in);
 

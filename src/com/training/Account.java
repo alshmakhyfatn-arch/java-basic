@@ -1,36 +1,42 @@
-package com.training;
-
-
 public class Account {
-    private String accountHolder;
-    private int accountNumber;
-    private double balance;
- 
-    public Account(String accountHolder, int accountNumber, double balance) {
-        this.accountHolder = accountHolder;
-        this.accountNumber = accountNumber;
-        this.balance = balance;
-    }
- 
-    public String getAccountHolder() { return accountHolder; }
-    public int getAccountNumber()    { return accountNumber; }
-    public double getBalance()       { return balance; }
- 
-    public void deposit(double amount) {
-        if (amount <= 0) throw new IllegalArgumentException("Deposit amount must be positive.");
-        balance += amount;
-    }
- 
-    public void withdraw(double amount) {
-        if (amount <= 0) throw new IllegalArgumentException("Withdrawal amount must be positive.");
-        if (amount > balance) throw new IllegalArgumentException("Insufficient balance.");
-        balance -= amount;
-    }
- 
-    @Override
-    public String toString() {
-        return "Account Holder: " + accountHolder +
-               " | Account Number: " + accountNumber +
-               " | Balance: " + balance;
-    }
+
+	protected int accountNumber;
+	protected String customerName;
+	protected double balance; 
+	
+	public Account(int  accountNumber, String customerName, double balance) {
+	private int accountNumber;
+	private String customerName;
+	protected double balance;
+
+	public Account(int accountNumber, String customerName, double balance) {
+		this.accountNumber = accountNumber;
+		this.customerName = customerName;
+		this.balance= balance; 	
+		this.balance = balance;
+	}
+
+	public void deposit(double amount) {
+		balance = balance + amount;
+		System.out.println("deposit:"+amount);
+	}
+
+	public void withdraw(double amount) {
+		if (amount <= balance) {
+			balance = balance - amount;
+			System.out.println("withdraw:"+amount);
+	} else {
+		System.out.println("Insufficient balance");
+		} else {
+			System.out.println("Insufficient Balance");
+		}
+	}
+
+	public double displayBalance() {
+		return balance;
+	}
+}
+	public void displayBalance() {
+		System.out.println("Current Balance: " + balance);
+	}	
 }
