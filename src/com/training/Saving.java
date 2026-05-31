@@ -1,23 +1,50 @@
-package com.traning;
+package oops;
 
-public class SavingsAccount extends Account {
+import exception.InsufficientBalanceException;
 
-	protected double interestRate;
-	private double interestRate;
-
-	public SavingsAccount(int accountNumber, String customerName,
-			double balance, double interestRate) {
-
+public class Saving extends Account{
+	
+	private float interestRate = 4.5f;
+	
+	public Saving(int accountNumber, String customerName, 
+			             double balance, float interestRate) {
 		super(accountNumber, customerName, balance);
 		this.interestRate = interestRate;
 	}
-	
-	public void aadInterst() {
-		double interest = (balance * interestRate/100);
-		balance += interest;
-		System.out.println(interest+":Intereest add to the balance");
 
+	public float getInterestRate() {
+		return interestRate;
+	}
+
+	public void setInterestRate(float interestRate) {
+		this.interestRate = interestRate;
+	}
+	
 	public void addInterest() {
-		balance = balance + interestRate;
+		double interest = (balance * interestRate)/100;
+		balance += interest;
+		System.out.println(interest+ ":Interest added to the balance");
+	}
+	
+	//Overloading--static polymorphism
+	public void addInterest(double interestRate) {
+		double interest = (balance * interestRate)/100;
+		balance += interest;
+		System.out.println(interest+ ":Interest added to the balance");
+	}
+
+	@Override
+	public void withdraw(double amount) throws InsufficientBalanceException{
+		if(amount < balance) {
+			balance -= amount;
+			System.out.println(amount+" got withdrawn successfully in your account"); 
+		}
+		else { 
+			
+			throw new InsufficientBalanceException("Insufficient balance");	
+			
+			//System.out.println("Insufficient balance");
+		}
+		
 	}
 }

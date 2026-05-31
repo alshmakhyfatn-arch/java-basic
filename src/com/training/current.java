@@ -1,23 +1,33 @@
-package com.traning;
+package oops;
 
-public class SavingsAccount extends Account {
+public class Current extends Account{
+	
+	private double overdraftLimit;
 
-	protected double interestRate;
-	private double interestRate;
-
-	public SavingsAccount(int accountNumber, String customerName,
-			double balance, double interestRate) {
-
+	public Current(int accountNumber, String customerName, double balance, double overdraftLimit) {
 		super(accountNumber, customerName, balance);
-		this.interestRate = interestRate;
+		this.overdraftLimit = overdraftLimit;
+	}
+
+	public double getOverdraftLimit() {
+		return overdraftLimit;
+	}
+
+	public void setOverdraftLimit(double overdraftLimit) {
+		this.overdraftLimit = overdraftLimit;
 	}
 	
-	public void aadInterst() {
-		double interest = (balance * interestRate/100);
-		balance += interest;
-		System.out.println(interest+":Intereest add to the balance");
-
-	public void addInterest() {
-		balance = balance + interestRate;
+	@Override
+	public void withdraw(double amount) {
+		if(balance+overdraftLimit >= amount) {
+			balance -= amount;
+			System.out.println("Amount withdrawn from current account");
+		}
+		else {
+			System.out.println("Exceeds Overdraft");
+		}
 	}
+	
+	
+
 }

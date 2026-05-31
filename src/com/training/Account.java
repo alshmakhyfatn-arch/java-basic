@@ -1,42 +1,65 @@
-public class Account {
+package oops;
 
+import exception.InsufficientBalanceException;
+
+public abstract class Account {
+	
 	protected int accountNumber;
 	protected String customerName;
-	protected double balance; 
-	
-	public Account(int  accountNumber, String customerName, double balance) {
-	private int accountNumber;
-	private String customerName;
 	protected double balance;
-
+	
 	public Account(int accountNumber, String customerName, double balance) {
 		this.accountNumber = accountNumber;
 		this.customerName = customerName;
-		this.balance= balance; 	
 		this.balance = balance;
 	}
 
+	public int getAccountNumber() {
+		return accountNumber;
+	}
+
+	public void setAccountNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	
+	//deposit
 	public void deposit(double amount) {
-		balance = balance + amount;
-		System.out.println("deposit:"+amount);
+		balance += amount; //balance = balance+amount
+		System.out.println(amount+" got deposited successfully in your account"); 
 	}
-
-	public void withdraw(double amount) {
-		if (amount <= balance) {
-			balance = balance - amount;
-			System.out.println("withdraw:"+amount);
-	} else {
-		System.out.println("Insufficient balance");
-		} else {
-			System.out.println("Insufficient Balance");
-		}
-	}
-
+	
+	//withdraw
+//	public void withdraw(double amount) {
+//		if(amount < balance) {
+//			balance -= amount;
+//			System.out.println(amount+" got withdrawn successfully in your account"); 
+//		}
+//		else {
+//			System.out.println("Insufficient balance");
+//		}
+//		
+//	}
+	
+	public abstract void withdraw(double amount) throws InsufficientBalanceException;
+	
 	public double displayBalance() {
 		return balance;
 	}
-}
-	public void displayBalance() {
-		System.out.println("Current Balance: " + balance);
-	}	
+
 }

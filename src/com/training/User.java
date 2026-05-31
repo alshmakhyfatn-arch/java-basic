@@ -1,25 +1,39 @@
 
-package com.traning;
+package oops;
 
 import java.util.Objects;
 
-public class User implements Comparable<User> {
-	private String userId; 
-	private String userName;
-	private String userEmail;
+//Encapsulation
+public class User{// implements Comparable<User>{
 	
-	public User(String userId, String userName, String userEmail) {
+	// 1. attributes
+	// instance variables
+	protected String userId;
+	protected String userName;
+	protected String userEmail;
+	protected int age;
+	
+	public User() {
+		System.out.println("User constructor called");
+	}
+	
+	//Constructor
+	public User(String userId, String userName, String userEmail, int age) {
 		this.userId = userId;
 		this.userName = userName;
 		this.userEmail = userEmail;
-	
-		
-		//System.out.println("Constructor is called");
+		this.age = age;
 	}
 	
+	//static variables
 	static String organizationName;
-	public String getUserName()
-	{
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public String getUserName() {
 		return userName;
 	}
 	public void setUserName(String userName) {
@@ -31,23 +45,17 @@ public class User implements Comparable<User> {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	// 2. behaviour
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	// getter method
-	public String getUserId() {
-		
-		return this.userId;
-	}
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + "]";
+		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + ", Age="+ age+"]";
 	}
+
 	@Override
 	public int hashCode() {
+		
 		return Objects.hash(userEmail, userId, userName);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -59,10 +67,28 @@ public class User implements Comparable<User> {
 		User other = (User) obj;
 		return Objects.equals(userEmail, other.userEmail) && Objects.equals(userId, other.userId)
 				&& Objects.equals(userName, other.userName);
-	}	
-	
-	public int compareTo(User o) {
-		return this.userId.compareTo(o.userId);
 	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+//	@Override
+//	public int compareTo(User o) {
+//		return this.userId.compareTo(o.userId);
+//	}
 	
+	
+	
+	
+	
+	// 2. behaviour
+	
+	
+	
+
 }
