@@ -33,12 +33,7 @@ public class UserClient {
 		
 		
 		User user1 = new User("A101","Haitham","abc@mail.com",21); 
-//		user1.setUserId("A101");
-//		user1.setUserName("Haitham");
-//		user1.setUserEmail("abc@mail.com");
-//		User.organizationName = "OAB";
-//		User user2 = new User("A102","Abrar","xyz@gmail.com");
-//		System.out.println(user1);
+
 	}
 
 

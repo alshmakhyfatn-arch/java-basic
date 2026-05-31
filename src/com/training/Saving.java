@@ -26,7 +26,7 @@ public class Saving extends Account{
 		System.out.println(interest+ ":Interest added to the balance");
 	}
 	
-	//Overloading--static polymorphism
+	
 	public void addInterest(double interestRate) {
 		double interest = (balance * interestRate)/100;
 		balance += interest;

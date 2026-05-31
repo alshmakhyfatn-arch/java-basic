@@ -11,7 +11,7 @@ public class BankClient {
 		savingAccount.addInterest();
 		System.out.println("After adding interest:"+Saving.displayBalance());
 		
-		//dynamic polymorphism
+		
 		Account currentAccount = new Current(
 									2781,"Hassan",400,100);
 		currentAccount.deposit(500);
